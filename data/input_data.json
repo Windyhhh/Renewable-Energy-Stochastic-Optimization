@@ -1,0 +1,52 @@
+{
+  "description": "可再生能源交易优化模型输入参数配置",
+  
+  "scenario_generation": {
+    "num_scenarios": 2000,
+    "num_stages": 4,
+    "hours_per_stage": 168,
+    "seed": 42
+  },
+  
+  "generator_parameters": {
+    "capacity_mw": 160,
+    "avg_generation_mwh_per_h": 100.0,
+    "generation_cost_per_mwh": 0.0,
+    "location": "巴西东北部（北里奥格兰德州）",
+    "type": "风力发电"
+  },
+  
+  "market_parameters": {
+    "avg_spot_price": 150.0,
+    "spot_price_volatility": 0.4,
+    "risk_premium_rate": 0.05,
+    "currency": "R$"
+  },
+  
+  "scenario_tree": {
+    "branching_factors": [2, 2, 2, 2],
+    "clustering_method": "kmeans",
+    "clustering_feature": "weekly_avg_spot_price"
+  },
+  
+  "risk_constraints": {
+    "alpha": 0.9,
+    "weekly_cvar_min_kr": 500.0,
+    "monthly_cvar_min_kr": 3000.0,
+    "max_drawdown_kr": 300.0
+  },
+  
+  "optimization": {
+    "solver": "PULP_CBC_CMD",
+    "time_limit_seconds": 300,
+    "include_risk_constraints": true
+  },
+  
+  "contracts": {
+    "types": ["sell"],
+    "decision_stages": [0, 1, 2, 3],
+    "delivery_periods": "flexible",
+    "max_quantity_ratio": 1.0
+  }
+}
+
