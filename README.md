@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ Renewable-Energy-Stochastic-Optimization
+# 可再生能源随机优化 | Renewable-Energy-Stochastic-Optimization
 
 ### Multi-stage stochastic optimization for energy trading.
 
